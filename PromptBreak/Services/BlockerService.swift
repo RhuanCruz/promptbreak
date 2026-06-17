@@ -6,6 +6,8 @@ final class BlockerService {
     private var intensity: BlockIntensity = .hard
     private var observer: NSObjectProtocol?
 
+    var onBlockTriggered: ((String) -> Void)?
+
     func activate(blockedApps: [String], intensity: BlockIntensity) {
         self.blockedApps = Set(blockedApps)
         self.intensity = intensity
@@ -38,15 +40,11 @@ final class BlockerService {
             sendNagNotification(appName: app.localizedName ?? "that app")
         case .hard:
             guard AXIsProcessTrusted() else {
-                // Accessibility not granted — fall back to soft
                 sendNagNotification(appName: app.localizedName ?? "that app")
                 return
             }
             app.hide()
-            // Bring the overlay back to front
-            NSApp.windows
-                .filter { $0 is CameraOverlayWindow }
-                .forEach { $0.makeKeyAndOrderFront(nil) }
+            onBlockTriggered?(app.localizedName ?? "that app")
         }
     }
 

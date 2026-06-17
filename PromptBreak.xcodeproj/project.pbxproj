@@ -17,8 +17,10 @@
 		39420B8AC6F32E02574035B9 /* PromptBreakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762A483F7B04C20CE65B876 /* PromptBreakApp.swift */; };
 		3BDE621AD5083C875713DDF0 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA29D6FD85EB78BC9377E301 /* License.swift */; };
 		59CC1F21DA577A5414C03DC7 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D17989F6786C1621252241 /* AccountView.swift */; };
+		6127F6F61951EE145EE477EF /* BlockOverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F752C27863E52CADA319A9 /* BlockOverlayWindow.swift */; };
 		6D353AE3A945F445217A6E9D /* BlockerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CD97582A672F59173A192 /* BlockerService.swift */; };
 		6D50DCCD597FFF68F0EE5AC3 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CD3286E282DD224583604 /* RulesView.swift */; };
+		7380DCE019DEB5DFB65C06A1 /* BlockOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405F3F99B39165DE75271D6 /* BlockOverlayView.swift */; };
 		7F39EA22CA29E5A49BAEB87C /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E62AC729CDCDCD4B179E6 /* MainWindow.swift */; };
 		821E13E25D0C74FACB612B38 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7281C04CD3CD1F99EC6AC /* TodayView.swift */; };
 		A7A36188AF6240C31A66865B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E76E7CE54202DF3FC612B /* OnboardingView.swift */; };
@@ -40,12 +42,14 @@
 		123D88EC63580B8C0D46A355 /* ClaudeUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeUsageService.swift; sourceTree = "<group>"; };
 		25412D0D3886462F81C8454B /* PermissionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsService.swift; sourceTree = "<group>"; };
 		2D5CD3286E282DD224583604 /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
+		36F752C27863E52CADA319A9 /* BlockOverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockOverlayWindow.swift; sourceTree = "<group>"; };
 		386BE81E7EFA10FCE3829F78 /* CameraOverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOverlayWindow.swift; sourceTree = "<group>"; };
 		3D0E76E7CE54202DF3FC612B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		3FEB6FF22A17EEE8D79B220D /* PoseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseService.swift; sourceTree = "<group>"; };
 		400819918820834D2FAC79D0 /* LicenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseService.swift; sourceTree = "<group>"; };
 		464CD97582A672F59173A192 /* BlockerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockerService.swift; sourceTree = "<group>"; };
 		5F32E0DC543C8D61302F8CD1 /* OnboardingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWindow.swift; sourceTree = "<group>"; };
+		6405F3F99B39165DE75271D6 /* BlockOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockOverlayView.swift; sourceTree = "<group>"; };
 		8AA2AC1C2ADCC797C82596D1 /* GlassKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassKit.swift; sourceTree = "<group>"; };
 		93D17989F6786C1621252241 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A08E5557E3A4E6868C14215D /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		6C329964A100B70EED44CDE5 /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
+				6405F3F99B39165DE75271D6 /* BlockOverlayView.swift */,
+				36F752C27863E52CADA319A9 /* BlockOverlayWindow.swift */,
 				AB6EE1B2D343AABC4D737E8E /* CameraOverlayView.swift */,
 				386BE81E7EFA10FCE3829F78 /* CameraOverlayWindow.swift */,
 			);
@@ -229,6 +235,12 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F93F13A081E7FD3E5D13F0A7 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = E921F91D542FBAEE77D39F32 /* Build configuration list for PBXProject "PromptBreak" */;
 			developmentRegion = en;
@@ -267,6 +279,8 @@
 			files = (
 				59CC1F21DA577A5414C03DC7 /* AccountView.swift in Sources */,
 				EE9D7198A34E687D31E52F7B /* AppState.swift in Sources */,
+				7380DCE019DEB5DFB65C06A1 /* BlockOverlayView.swift in Sources */,
+				6127F6F61951EE145EE477EF /* BlockOverlayWindow.swift in Sources */,
 				6D353AE3A945F445217A6E9D /* BlockerService.swift in Sources */,
 				E5FD2F79D20D07FA11F2296F /* BreakSession.swift in Sources */,
 				E3DF60906261E536A80CA2CD /* CameraOverlayView.swift in Sources */,
@@ -346,10 +360,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = PromptBreak/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -419,10 +430,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = PromptBreak/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -440,18 +448,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 8F6U896N7D;
 				INFOPLIST_FILE = PromptBreak/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.promptbreak.app;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -460,18 +463,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 8F6U896N7D;
 				INFOPLIST_FILE = PromptBreak/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.promptbreak.app;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;

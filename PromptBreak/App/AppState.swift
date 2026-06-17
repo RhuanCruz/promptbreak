@@ -28,6 +28,7 @@ final class AppState: ObservableObject {
     @Published var userName: String = UserDefaults.standard.string(forKey: "user_name") ?? ""
 
     private var overlayWindow: CameraOverlayWindow?
+    private var blockOverlayWindow: BlockOverlayWindow?
     private var onboardingWindow: OnboardingWindow?
     private var mainWindow: MainWindow?
     private var cancellables = Set<AnyCancellable>()
@@ -103,6 +104,9 @@ final class AppState: ObservableObject {
             return
         }
         session = .active(reps: 0, goal: Rules.current.squatGoal)
+        blocker.onBlockTriggered = { [weak self] _ in
+            self?.showBlockOverlay()
+        }
         blocker.activate(blockedApps: Rules.current.blockedApps, intensity: Rules.current.blockIntensity)
         showOverlay()
     }
@@ -121,7 +125,9 @@ final class AppState: ObservableObject {
 
     func endBreak() {
         session = .idle
+        blocker.onBlockTriggered = nil
         blocker.deactivate()
+        dismissBlockOverlay()
         dismissOverlay()
         if Rules.current.trigger == .claudeSpend && claudeUsage.isInstalled {
             claudeUsage.resetSpend()
@@ -131,7 +137,31 @@ final class AppState: ObservableObject {
         updateStreak()
     }
 
-    // MARK: - Overlay
+    // MARK: - Block overlay (shown when user tries to open a blocked app mid-break)
+
+    private func showBlockOverlay() {
+        guard blockOverlayWindow == nil else {
+            blockOverlayWindow?.makeKeyAndOrderFront(nil)
+            return
+        }
+        let win = BlockOverlayWindow()
+        blockOverlayWindow = win
+        win.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    private func dismissBlockOverlay() {
+        blockOverlayWindow?.close()
+        blockOverlayWindow = nil
+    }
+
+    func bringExerciseWindowToFront() {
+        dismissBlockOverlay()
+        overlayWindow?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    // MARK: - Exercise overlay
 
     private func showOverlay() {
         let win = CameraOverlayWindow()
