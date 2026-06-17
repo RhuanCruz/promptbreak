@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "PromptBreak — Your next prompt has a cooldown.",
     description:
       "PromptBreak blocks Claude, Cursor and Codex until you stand up and move. Camera-verified. No cheating.",
-    url: "https://promptbreak.com",
+    url: "https://promptbreak.opusbr.com",
     siteName: "PromptBreak",
     images: [
       {
