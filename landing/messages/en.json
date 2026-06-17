@@ -1,0 +1,57 @@
+{
+  "header": {
+    "nav_how": "How it works",
+    "nav_pricing": "Pricing",
+    "nav_faq": "FAQ",
+    "cta": "Buy now"
+  },
+  "hero": {
+    "pill": "macOS 14+",
+    "pill_href": "#",
+    "headline": "You forgot\nyou have legs.",
+    "sub": "PromptBreak locks Claude, Cursor and Codex until you stand up and move. Camera-verified. No cheating.",
+    "cta_primary": "Download for Mac",
+    "cta_secondary": "Watch demo"
+  },
+  "feature": {
+    "label": "the premise",
+    "quote_line1": "\"Six hours of vibe coding.",
+    "quote_line2": "Zero steps.",
+    "quote_line3": "Your posture called.\""
+  },
+  "cta": {
+    "headline": "Stand up.\nIt'll only take a minute.",
+    "sub": "Cheaper than the chiropractor you're heading to. Less than your next coffee order. Better for your back than six more hours in the chair.",
+    "cta_primary": "Get PromptBreak — $9.99"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "sub": "Everything you need to know before you buy.",
+    "items": [
+      {
+        "q": "Is this a subscription?",
+        "a": "No. One-time payment. Pay once, use forever, and get all future updates."
+      },
+      {
+        "q": "What apps does it block?",
+        "a": "Anything you pick: Claude, Cursor, VS Code, Terminal, Codex, Ghostty. If it's a macOS app, PromptBreak can block it."
+      },
+      {
+        "q": "Can I cheat the camera?",
+        "a": "The camera tracks your actual movement using Apple's Vision framework on-device. You need to complete the real reps — quick gestures won't count."
+      },
+      {
+        "q": "Does the camera send video anywhere?",
+        "a": "Never. All pose detection runs locally using Apple Vision. No video ever leaves your Mac."
+      },
+      {
+        "q": "What Macs does it support?",
+        "a": "macOS 14 Sonoma or later, on any Mac with a built-in camera or Continuity Camera (iPhone as webcam)."
+      },
+      {
+        "q": "What's the refund policy?",
+        "a": "Email us within 30 days for a full refund, no questions asked."
+      }
+    ]
+  }
+}

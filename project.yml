@@ -1,0 +1,44 @@
+name: PromptBreak
+options:
+  bundleIdPrefix: com.promptbreak
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+settings:
+  base:
+    PRODUCT_NAME: PromptBreak
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ""
+    PRODUCT_BUNDLE_IDENTIFIER: com.promptbreak.app
+    INFOPLIST_FILE: PromptBreak/Resources/Info.plist
+    CODE_SIGN_ENTITLEMENTS: PromptBreak/Resources/PromptBreak.entitlements
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+    ENABLE_HARDENED_RUNTIME: YES
+  debug:
+    SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+    DEBUG_INFORMATION_FORMAT: dwarf
+  release:
+    SWIFT_OPTIMIZATION_LEVEL: "-O"
+    DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+
+targets:
+  PromptBreak:
+    type: application
+    platform: macOS
+    sources:
+      - path: PromptBreak
+        excludes:
+          - Resources/Info.plist
+          - Resources/PromptBreak.entitlements
+    resources:
+      - path: PromptBreak/Resources/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.promptbreak.app
+    dependencies: []

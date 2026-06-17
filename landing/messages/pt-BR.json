@@ -1,0 +1,57 @@
+{
+  "header": {
+    "nav_how": "Como funciona",
+    "nav_pricing": "Preços",
+    "nav_faq": "FAQ",
+    "cta": "Comprar"
+  },
+  "hero": {
+    "pill": "macOS 14+",
+    "pill_href": "#",
+    "headline": "Você esqueceu\nque tem pernas.",
+    "sub": "PromptBreak bloqueia Claude, Cursor e Codex até você levantar e se mover. Verificado pela câmera. Sem trapaça.",
+    "cta_primary": "Baixar para Mac",
+    "cta_secondary": "Ver demo"
+  },
+  "feature": {
+    "label": "a premissa",
+    "quote_line1": "\"Seis horas de vibe coding.",
+    "quote_line2": "Zero passos.",
+    "quote_line3": "Sua postura ligou.\""
+  },
+  "cta": {
+    "headline": "Levanta.\nSó vai demorar um minuto.",
+    "sub": "Mais barato que a consulta no quiroprático pra onde você tá indo. Mais barato que o café que você tá tomando parado. Melhor pra sua lombar que mais seis horas na cadeira.",
+    "cta_primary": "Comprar PromptBreak — R$12,90"
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "sub": "Tudo que você precisa saber antes de comprar.",
+    "items": [
+      {
+        "q": "É uma assinatura?",
+        "a": "Não. Pagamento único. Paga uma vez, usa para sempre e recebe todas as atualizações futuras."
+      },
+      {
+        "q": "Quais apps são bloqueados?",
+        "a": "Qualquer um que você escolher: Claude, Cursor, VS Code, Terminal, Codex, Ghostty. Se é um app macOS, o PromptBreak pode bloquear."
+      },
+      {
+        "q": "Dá pra enganar a câmera?",
+        "a": "A câmera rastreia seu movimento real usando o framework Vision da Apple, no próprio dispositivo. Você precisa completar as reps de verdade — gestos rápidos não contam."
+      },
+      {
+        "q": "A câmera envia vídeo para algum lugar?",
+        "a": "Nunca. Toda detecção de pose roda localmente com Apple Vision. Nenhum vídeo sai do Mac."
+      },
+      {
+        "q": "Quais Macs são suportados?",
+        "a": "macOS 14 Sonoma ou superior, em qualquer Mac com câmera embutida ou Continuity Camera (iPhone como webcam)."
+      },
+      {
+        "q": "Qual é a política de reembolso?",
+        "a": "Manda um email em até 30 dias para reembolso total, sem perguntas."
+      }
+    ]
+  }
+}
