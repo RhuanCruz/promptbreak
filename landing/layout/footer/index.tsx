@@ -19,6 +19,15 @@ export default function Footer() {
             </p>
           </div>
 
+          <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <Link href="mailto:rhuan@opusbr.com" className="hover:text-foreground transition-colors">
+              rhuan@opusbr.com
+            </Link>
+            <Link href="https://wa.me/5511997964191" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              +55 11 99796-4191
+            </Link>
+          </div>
+
           <div className="flex items-start justify-start gap-6">
             <Link href="https://x.com/zzurcz" target="_blank" rel="noopener noreferrer">
               <X className="w-6 hover:opacity-70 transition-opacity" />

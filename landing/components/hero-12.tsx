@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "@aliimam/icons"
 import { useTranslations } from "next-intl"
@@ -103,8 +104,15 @@ export default function HeroDemo() {
             aria-hidden
             className="to-background absolute inset-0 z-10 bg-linear-to-b from-transparent from-35%"
           />
-          <div className="ring-background bg-background relative mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border shadow-lg ring-1 shadow-zinc-950/15 dark:inset-shadow-white/20 aspect-video">
-            <p className="text-muted-foreground text-sm absolute inset-0 flex items-center justify-center">[ demo video ]</p>
+          <div className="ring-background bg-background relative mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border shadow-lg ring-1 shadow-zinc-950/15 dark:inset-shadow-white/20">
+            <Image
+              src="/app-screenshot.png"
+              alt="PromptBreak app screenshot"
+              width={1456}
+              height={816}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
       </div>
