@@ -5,6 +5,7 @@ final class BlockerService {
     private var blockedApps: Set<String> = []
     private var intensity: BlockIntensity = .hard
     private var observer: NSObjectProtocol?
+    private var enforceTimer: Timer?
 
     var onBlockTriggered: ((String) -> Void)?
 
@@ -12,6 +13,9 @@ final class BlockerService {
         self.blockedApps = Set(blockedApps)
         self.intensity = intensity
         self.isActive = true
+
+        // Immediately enforce if a blocked app is already frontmost
+        enforceBlocking()
 
         observer = NSWorkspace.shared.notificationCenter.addObserver(
             forName: NSWorkspace.didActivateApplicationNotification,
@@ -24,14 +28,29 @@ final class BlockerService {
                   self.blockedApps.contains(bundleID) else { return }
             self.handleBlockedAppActivation(app)
         }
+
+        // Poll every 1.5s to re-enforce in case the user switches back
+        enforceTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { [weak self] _ in
+            self?.enforceBlocking()
+        }
     }
 
     func deactivate() {
         isActive = false
+        enforceTimer?.invalidate()
+        enforceTimer = nil
         if let obs = observer {
             NSWorkspace.shared.notificationCenter.removeObserver(obs)
             observer = nil
         }
+    }
+
+    private func enforceBlocking() {
+        guard isActive else { return }
+        guard let app = NSWorkspace.shared.frontmostApplication,
+              let bundleID = app.bundleIdentifier,
+              blockedApps.contains(bundleID) else { return }
+        handleBlockedAppActivation(app)
     }
 
     private func handleBlockedAppActivation(_ app: NSRunningApplication) {
