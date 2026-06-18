@@ -55,6 +55,18 @@ struct BlockOverlayView: View {
                 }
                 .buttonStyle(.plain)
                 .keyboardShortcut(.return, modifiers: [])
+
+                if !AXIsProcessTrusted() {
+                    Button(action: {
+                        let options = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as String: true] as CFDictionary
+                        AXIsProcessTrustedWithOptions(options)
+                    }) {
+                        Label("Grant Accessibility to fully block apps", systemImage: "lock.shield")
+                            .font(.system(size: 12, weight: .medium, design: .rounded))
+                            .foregroundStyle(.white.opacity(0.5))
+                    }
+                    .buttonStyle(.plain)
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

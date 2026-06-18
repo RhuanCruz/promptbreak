@@ -24,6 +24,8 @@
     <true/>
     <key>NSCameraUsageDescription</key>
     <string>PromptBreak uses the camera to count your squats during breaks.</string>
+    <key>NSAccessibilityUsageDescription</key>
+    <string>PromptBreak needs Accessibility to hide blocked apps during breaks.</string>
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2026 PromptBreak</string>
     <key>CFBundleURLTypes</key>

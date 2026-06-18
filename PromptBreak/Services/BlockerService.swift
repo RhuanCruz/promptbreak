@@ -1,5 +1,6 @@
 import AppKit
 
+@MainActor
 final class BlockerService {
     private var isActive = false
     private var blockedApps: Set<String> = []
@@ -22,16 +23,18 @@ final class BlockerService {
             object: nil,
             queue: .main
         ) { [weak self] note in
-            guard let self, self.isActive else { return }
-            guard let app = note.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
-                  let bundleID = app.bundleIdentifier,
-                  self.blockedApps.contains(bundleID) else { return }
-            self.handleBlockedAppActivation(app)
+            guard let app = note.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication else { return }
+            Task { @MainActor [weak self] in
+                guard let self, self.isActive,
+                      let bundleID = app.bundleIdentifier,
+                      self.blockedApps.contains(bundleID) else { return }
+                self.handleBlockedAppActivation(app)
+            }
         }
 
         // Poll every 1.5s to re-enforce in case the user switches back
         enforceTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { [weak self] _ in
-            self?.enforceBlocking()
+            Task { @MainActor [weak self] in self?.enforceBlocking() }
         }
     }
 
@@ -54,16 +57,16 @@ final class BlockerService {
     }
 
     private func handleBlockedAppActivation(_ app: NSRunningApplication) {
+        let appName = app.localizedName ?? "that app"
         switch intensity {
         case .soft:
-            sendNagNotification(appName: app.localizedName ?? "that app")
+            sendNagNotification(appName: appName)
         case .hard:
-            guard AXIsProcessTrusted() else {
-                sendNagNotification(appName: app.localizedName ?? "that app")
-                return
+            // Always show the overlay — accessibility is only needed for app.hide()
+            onBlockTriggered?(appName)
+            if AXIsProcessTrusted() {
+                app.hide()
             }
-            app.hide()
-            onBlockTriggered?(app.localizedName ?? "that app")
         }
     }
 
