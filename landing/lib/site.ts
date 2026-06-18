@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "PromptBreak",
-  downloadUrl: "https://github.com/RhuanCruz/promptbreak/releases/latest/download/PromptBreak.0.1.0.dmg",
+  downloadUrl: "https://github.com/RhuanCruz/promptbreak/releases/latest/download/PromptBreak.0.2.0.dmg",
   demoVideoUrl: "", // TODO: replace with real video URL
   checkout: {
     usd: "https://buy.stripe.com/8x2bJ12iMeGHh172874gg02",
